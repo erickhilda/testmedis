@@ -1,5 +1,5 @@
 import express from 'express';
-import { bloodTestAssignments } from '../comtroller/blood-test-assignments';
+import { bloodTestAssignments } from '../controller/blood-test-assignments';
 
 const router = express.Router();
 

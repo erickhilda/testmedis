@@ -1,5 +1,5 @@
 import express from 'express';
-import { TemplateEngine } from '../comtroller/template-engine';
+import { TemplateEngine } from '../controller/template-engine';
 
 const router = express.Router();
 
