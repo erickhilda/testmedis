@@ -21,6 +21,16 @@ export function bloodTestAssignments(requests: number[], teams: number): number[
       const availableTeam = teamsAvailability.find((team) => team.requests + 2 <= sortedRequests[i])
 
       if (availableTeam) {
+        if (teamAssignments[i - 1] === availableTeam.team) {
+          const anotherAvailableTeam = teamsAvailability.find((team) => team.team !== teamAssignments[i - 1] && team.requests + 2 <= sortedRequests[i])
+          console.log(anotherAvailableTeam)
+          if (anotherAvailableTeam) {
+            anotherAvailableTeam.requests = sortedRequests[i];
+            anotherAvailableTeam.avail = false;
+            teamAssignments.push(anotherAvailableTeam.team)
+            continue;
+          }
+        }
         availableTeam.requests = sortedRequests[i];
         availableTeam.avail = false;
 
