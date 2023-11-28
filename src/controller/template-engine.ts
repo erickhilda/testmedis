@@ -12,7 +12,7 @@ export class TemplateEngine {
     // month 01 - 12
     const month = (date.getMonth() + 1).toString().padStart(2, "0");
     // day 01 - 31
-    const day = (date.getDate() + 1).toString().padStart(2, "0");
+    const day = date.getDate().toString().padStart(2, "0");
 
     return { year, month, day }
   };
@@ -30,13 +30,12 @@ export class TemplateEngine {
     let result = template
       .replace("REG_TYPE", regType)
       .replace("SEQ", formattedSequence)
-      .replace("YY", year.slice(-2))
       .replace("YYYY", year)
+      .replace("YY", year.slice(-2))
       .replace("MM", month)
       .replace("DD", day);
 
     result = result.split("{").join("").split("}").join("");
-    result = result.replace("YY", "");
 
     return result;
   }
